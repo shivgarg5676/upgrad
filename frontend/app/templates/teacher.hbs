@@ -1,0 +1,28 @@
+<div class="flex layout-align-center-center question-list">
+  {{#paper-item class="pull-left"}}
+    Question List
+  {{/paper-item}}
+  {{#paper-card}}
+    <div class="layout-row flex layout-align-left-center header">
+      <div class="flex-15  layout-row layout-align-center-center ">
+        {{#paper-checkbox class="margin-0" value=selectAll onChange=(action (mut selectAll))}}
+          Select All
+        {{/paper-checkbox}}
+      </div>
+      <div class="flex-85 layout-row">
+        <div class="layout-row flex-40 full-height layout-align-start-center">
+          Select Questions to Assign
+        </div>
+        <div class="layout-row flex-60 layout-align-end-center">
+          {{#paper-button primary=true raised=true onClick=(action "assign")}}Assign{{/paper-button}}
+          {{#paper-button primary=true raised=true onClick=(action "newQuestion")}}Aurther new question{{/paper-button}}
+        </div>
+      </div>
+    </div>
+  {{/paper-card}}
+  {{#paper-card}}
+    {{#each questions as |question index|}}
+      
+    {{/each}}
+  {{/paper-card}}
+</div>

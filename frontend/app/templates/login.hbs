@@ -7,8 +7,8 @@
       {{#paper-radio-group
         groupValue= selectedRole
         onChange=(action (mut selectedRole)) as |group|}}
-        {{#group.radio value="Student" primary=true}} Student {{/group.radio}}
-        {{#group.radio value="Teacher" info=true}} Teacher {{/group.radio}}
+        {{#group.radio value="student" primary=true}} Student {{/group.radio}}
+        {{#group.radio value="teacher" info=true}} Teacher {{/group.radio}}
       {{/paper-radio-group}}
     </div>
 
