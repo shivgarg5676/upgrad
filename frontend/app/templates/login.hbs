@@ -1,1 +1,19 @@
-{{outlet}}
+{{#paper-card}}
+  {{#paper-item  class="layout-column layout-align-center-center" }}
+    <div class="layout-column layout-align-center-center">
+      <div class="margin-10">
+        I am a ..
+      </div>
+      {{#paper-radio-group
+        groupValue= selectedRole
+        onChange=(action (mut selectedRole)) as |group|}}
+        {{#group.radio value="Student" primary=true}} Student {{/group.radio}}
+        {{#group.radio value="Teacher" info=true}} Teacher {{/group.radio}}
+      {{/paper-radio-group}}
+    </div>
+
+  {{/paper-item}}
+  <div class="layout-row layout-align-end-end">
+    {{#paper-button primary=true raised=true onClick=(action "login")}}Login{{/paper-button}}
+  </div>
+{{/paper-card}}
