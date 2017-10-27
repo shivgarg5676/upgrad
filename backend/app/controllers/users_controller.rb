@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    users = User.find_by_user_type(params[:type])
+    users = User.where(user_type: params[:type])
     render json: users
   end
 end

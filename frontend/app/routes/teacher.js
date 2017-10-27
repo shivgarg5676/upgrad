@@ -7,9 +7,10 @@ export default Ember.Route.extend({
     // }
   },
   model(){
-    this.store.queryRecord('user',{me: true, type: this.get('session.currentRole')} )
+    this.store.query('user',{me: true, type: this.get('session.currentRole')} )
   },
-  setupController(){
-
+  setupController(controller, model){
+    this._super(controller,model)
+    controller.set('questions', this.store.findAll('question'));
   }
 });

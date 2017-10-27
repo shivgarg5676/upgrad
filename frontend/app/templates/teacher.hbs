@@ -4,12 +4,12 @@
   {{/paper-item}}
   {{#paper-card}}
     <div class="layout-row flex layout-align-left-center header">
-      <div class="flex-15  layout-row layout-align-center-center ">
+      <div class="flex-10  layout-row layout-align-center-center">
         {{#paper-checkbox class="margin-0" value=selectAll onChange=(action (mut selectAll))}}
           Select All
         {{/paper-checkbox}}
       </div>
-      <div class="flex-85 layout-row">
+      <div class="flex-90 layout-row padding-10 bg-lightgrey">
         <div class="layout-row flex-40 full-height layout-align-start-center">
           Select Questions to Assign
         </div>
@@ -20,9 +20,49 @@
       </div>
     </div>
   {{/paper-card}}
-  {{#paper-card}}
-    {{#each questions as |question index|}}
-      
-    {{/each}}
-  {{/paper-card}}
+
+  {{#each questions as |question index|}}
+
+    <div class="layout-row flex layout-align-left-center full-height">
+      <div class="layout-row flex layout-align-end-center flex-5">
+        {{#paper-checkbox class="margin-0" value=question.isSelected onChange=(action (mut question.isSelected))}}
+        {{/paper-checkbox}}
+      </div>
+      <div class="flex-95">
+        {{#paper-card}}
+          <div class="layout-row layout-align-start-center">
+            <div class="layout-column flex flex-5 layout-align-start-center padding-10 bg-lightgrey">
+              <div>
+                S.No
+              </div>
+               <div>
+                 {{index}}
+               </div>
+            </div>
+            <div class="layout-column flex-85 padding-10" >
+              <div>
+                <label>
+                  {{question.title}}
+                </label>
+              </div>
+              <div>
+                {{question.description}}
+              </div>
+            </div>
+
+            <div class="layout-column flex-15 layout-align-center-center bg-lightgrey padding-10">
+              <div>
+                Question Type
+              </div>
+              <div>
+                {{question.questionType}}
+              </div>
+            </div>
+          </div>
+        {{/paper-card}}
+      </div>
+
+    </div>
+  {{/each}}
+
 </div>
