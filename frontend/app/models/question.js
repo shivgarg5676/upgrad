@@ -5,7 +5,7 @@ export default DS.Model.extend({
   title: DS.attr(),
   description: DS.attr(),
   instructions: DS.attr(),
-  questionType: DS.attr(),
+  questionType: DS.belongsTo(),
   options: DS.hasMany(),
   idealAnswer: DS.attr(),
 
