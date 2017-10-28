@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
 
     },
     newQuestion(){
-
+      this.transitionToRoute('question.new')
     }
   }
 });

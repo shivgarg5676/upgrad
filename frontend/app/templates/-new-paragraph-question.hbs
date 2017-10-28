@@ -1,0 +1,11 @@
+{{#paper-form onSubmit=(action "saveQuestion") as |form|}}
+  <div class="layout-column padding-10">
+    {{form.input label="Question Title" value=question.title onChange=(action (mut question.title)) required=true}}
+    {{form.input label="Description" value=question.description onChange=(action (mut question.description)) required=true}}
+    {{form.input label="Ideal Answer" value=question.idealAnswer onChange=(action (mut question.idealAnswer)) required=false}}
+    {{form.input label="Instructions" value=question.instructions onChange=(action (mut question.instructions)) required=false}}
+  </div>
+  <div class="layout-row">
+    {{#form.submit-button raised=true primary=true}}Create Question{{/form.submit-button}}
+  </div>
+{{/paper-form}}

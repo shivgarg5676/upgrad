@@ -10,6 +10,10 @@ Router.map(function() {
   this.route('login', {path:'/'});
   this.route('teacher');
   this.route('student');
+
+  this.route('question', function() {
+    this.route('new');
+  });
 });
 
 export default Router;

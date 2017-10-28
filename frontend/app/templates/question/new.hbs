@@ -1,0 +1,23 @@
+{{#paper-item}}
+  Quesiton Builder
+{{/paper-item}}
+{{#paper-card class="padding-10"}}
+
+  {{#paper-item}}
+    What type of question do you want to build?
+  {{/paper-item}}
+  {{#paper-item}}
+  {{#paper-radio-group
+    groupValue=selectedQuestionTypeId
+    onChange=(action (mut selectedQuestionTypeId)) as |group|}}
+    {{#each questionTypes as |type|}}
+      {{#group.radio value=type.id primary=true}} {{type.name}} {{/group.radio}}
+    {{/each}}
+  {{/paper-radio-group}}
+  {{/paper-item}}
+{{/paper-card}}
+
+
+{{#paper-card}}
+  {{partial questionViewPartial}}
+{{/paper-card}}

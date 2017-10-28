@@ -1,0 +1,33 @@
+{{#paper-form onSubmit=(action "saveQuestion") as |form|}}
+  <div class="layout-column padding-10">
+    {{form.input label="Question Title" value=question.title onChange=(action (mut question.title)) required=true}}
+    {{form.input label="Description" value=question.description onChange=(action (mut question.description)) required=true}}
+
+    <div class="layout-row">
+      <div class="flex-70">
+        Answer Options
+      </div>
+      <div class="flex-30 layout-column layout-align-center-center">
+        Correct Options
+      </div>
+    </div>
+    <div>
+      {{#each question.options as |option index|}}
+        <div class="layout-row full-width">
+          <div class="flex-70">
+            {{form.input class="layout-column" label=(concat "option " (increment-index index 1)) value=option.name onChange=(action (mut option.name)) required=true}}
+          </div>
+          <div class="flex-30 layout-column layout-align-center-center">
+            {{#paper-checkbox class="margin-0" value=option.isCorrect onChange=(action (mut option.isCorrect))}}
+            {{/paper-checkbox}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+
+    {{form.input label="Instructions" value=question.instructions onChange=(action (mut question.instructions)) required=false}}
+  </div>
+  <div class="layout-row">
+    {{#form.submit-button raised=true primary=true}}Create Question{{/form.submit-button}}
+  </div>
+{{/paper-form}}
