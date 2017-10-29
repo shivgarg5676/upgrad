@@ -1,0 +1,38 @@
+{{#paper-item}}
+  Answer the question
+{{/paper-item}}
+
+
+{{#paper-form onSubmit=(action "saveAnswer") as |form|}}
+  {{#paper-card}}
+  {{#paper-item}}
+    {{model.question.title}}
+  {{/paper-item}}
+    {{#paper-item}}
+      {{model.question.description}}
+    {{/paper-item}}
+    {{#if isMcqType}}
+      {{#each model.question.options as |option|}}
+        <div class="layout-column full-width">
+          <div class="layout-row full-width">
+            <div class="flex-10 layout-align-center-center layout-row">
+              {{#paper-checkbox value=option.isMarked onChange=(action (mut option.isMarked))}}
+              {{/paper-checkbox}}
+            </div>
+            <div class="flex-90">
+              {{option.name}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      {{form.input textarea=true label="Answer" value=model.answer.answer onChange=(action (mut model.answer.answer)) required=true}}
+    {{/if}}
+    {{#paper-item}}
+      {{model.question.instructions}}
+    {{/paper-item}}
+    <div class="layout-row">
+      {{#form.submit-button raised=true primary=true}}Submit-answer{{/form.submit-button}}
+    </div>
+  {{/paper-card}}
+{{/paper-form}}

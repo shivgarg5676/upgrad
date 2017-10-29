@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('teacher');
   this.route('student', function() {
     this.route('assigned-questions',{path: '/:id/assigned-questions'});
+    this.route('answer-submission',{path: '/:id/question/:questionId/answer-submission'});
   });
 
   this.route('question', function() {

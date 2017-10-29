@@ -2,7 +2,7 @@
   Assigned Questions to: {{model.email}}
 {{/paper-item}}
 {{#each model.assignedQuestions as |question index|}}
-  <div>
+  <div {{action 'questionClicked' question}}>
     {{question-card question=question index=index}}
   </div>
 {{/each}}

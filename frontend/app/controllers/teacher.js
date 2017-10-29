@@ -16,7 +16,13 @@ export default Ember.Controller.extend({
 
   actions:{
     assign(){
-      this.toggleProperty('showAssignmentDialog')
+      let selectedQuestions =  this.get('questions').filterBy('isSelected', true)
+      if (selectedQuestions.length > 0) {
+        this.toggleProperty('showAssignmentDialog')
+      } else {
+        alert('please select questions to assign')
+      }
+
     },
     newQuestion(){
       this.transitionToRoute('question.new')

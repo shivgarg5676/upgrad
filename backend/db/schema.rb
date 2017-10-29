@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028032214) do
+ActiveRecord::Schema.define(version: 20171029084749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answer_option_mappings", force: :cascade do |t|
+    t.bigint "option_id"
+    t.bigint "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_answer_option_mappings_on_answer_id"
+    t.index ["option_id"], name: "index_answer_option_mappings_on_option_id"
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.text "answer"
+    t.bigint "question_id"
+    t.bigint "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["student_id"], name: "index_answers_on_student_id"
+  end
 
   create_table "options", force: :cascade do |t|
     t.string "name"
