@@ -1,0 +1,35 @@
+
+{{#if showAssignmentDialog}}
+  {{#paper-dialog class="flex-77" onClose=(action "closeDialog") origin=dialogOrigin clickOutsideToClose=true}}
+    {{#paper-toolbar}}
+      {{#paper-toolbar-tools}}
+        <h2>Select students to Assign Questions</h2>
+        <span class="flex"></span>
+        {{#paper-button iconButton=true onClick=(action "closeDialog")}}{{paper-icon icon="close"}}{{/paper-button}}
+      {{/paper-toolbar-tools}}
+    {{/paper-toolbar}}
+
+    {{#paper-dialog-content}}
+      <div class="layout-column">
+        {{#each students as |student|}}
+          {{#paper-item}}
+            <div class="layout-row">
+              <div class="flux-10">
+                {{#paper-checkbox value=student.isSelected onChange=(action (mut student.isSelected))}}
+                {{/paper-checkbox}}
+              </div>
+              <div class="flux-90">
+                {{student.name}}
+              </div>
+            </div>
+          {{/paper-item}}
+        {{/each}}
+      </div>
+    {{/paper-dialog-content}}
+
+    {{#paper-dialog-actions class="layout-row"}}
+      {{#paper-button onClick=(action "closeDialog")}}Cancel{{/paper-button}}
+      {{#paper-button onClick=(action "saveAssignment")}}Save Assignment{{/paper-button}}
+    {{/paper-dialog-actions}}
+  {{/paper-dialog}}
+{{/if}}

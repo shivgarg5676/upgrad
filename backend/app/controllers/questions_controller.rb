@@ -7,11 +7,11 @@ class QuestionsController < ApplicationController
 
     question= Question.create(question_params);
     params[:data][:options].each do |option|
-      o = Option.new(option_params(option))
-      o.question = q
-      o.save
+      option = Option.new(option_params(option))
+      option.question = question
+      option.save
     end
-    render :json=> q
+    render :json=> question
   end
 
   def question_params

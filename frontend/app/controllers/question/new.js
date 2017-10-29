@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
         this.set('question.options',[])
       }
       this.get('question').save().then(()=>{
-        this.transitionTo('teacher')
+        this.transitionToRoute('teacher')
       })
     }
   }

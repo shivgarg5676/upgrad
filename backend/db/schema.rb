@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20171028032214) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "options", force: :cascade do |t|
     t.string "name"
-    t.integer "question_id"
+    t.bigint "question_id"
     t.boolean "is_correct"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20171028032214) do
   end
 
   create_table "question_assignments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "question_id"
+    t.bigint "user_id"
+    t.bigint "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_question_assignments_on_question_id"
@@ -42,7 +45,7 @@ ActiveRecord::Schema.define(version: 20171028032214) do
     t.text "description"
     t.text "instructions"
     t.string "idealAnswer"
-    t.integer "question_type_id"
+    t.bigint "question_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_type_id"], name: "index_questions_on_question_type_id"

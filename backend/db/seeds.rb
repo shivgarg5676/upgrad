@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 student1 = User.where(:name => "shiv garg", :user_type => "student",:email=> "shivgarg5676@hotmail.com").first_or_create();
+student1 = User.where(:name => "ankit garg", :user_type => "student",:email=> "ankit@gmail.com").first_or_create();
+student1 = User.where(:name => "janis garg", :user_type => "student",:email=> "janis@gmail.com").first_or_create();
+student1 = User.where(:name => "sachin garg", :user_type => "student",:email=> "sachin@gmail.com").first_or_create();
+student1 = User.where(:name => "shubham garg", :user_type => "student",:email=> "shubhamgarg@hotmail.com").first_or_create();
+student1 = User.where(:name => "saif saikh", :user_type => "student",:email=> "saif@gmail.com").first_or_create();
+
+
 teacher1 = User.where(:name => "mohit garg", :user_type => "teacher",:email=> "mohitgarg5676@hotmail.com").first_or_create();
 question_type_1  = QuestionType.where(:name => 'MCQ').first_or_create()
 question_type_2 = QuestionType.where(:name => "Paragraph").first_or_create()
