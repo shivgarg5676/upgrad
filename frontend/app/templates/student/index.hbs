@@ -7,26 +7,24 @@
       Email
     </div>
     <div class="flex-20">
-      assigned-questions
+      Assigned Questions
     </div>
   </div>
 {{/paper-card}}
-{{#paper-card}}
-  {{#each model as |student|}}
-      <div {{action 'studentClicked' student}}>
-      {{#paper-card}}
-        <div class="layout-row padding-10">
-          <div class="flex-20">
-            {{student.name}}
-          </div>
-          <div class="flex-60">
-            {{student.email}}
-          </div>
-          <div class="flex-20">
-            {{student.assignedQuestions.length}}
-          </div>
+{{#each model as |student|}}
+    <div {{action 'studentClicked' student}}>
+    {{#paper-card}}
+      <div class="layout-row padding-10">
+        <div class="flex-20">
+          {{student.name}}
         </div>
-      {{/paper-card}}
-    </div>
-  {{/each}}
-{{/paper-card}}
+        <div class="flex-60">
+          {{student.email}}
+        </div>
+        <div class="flex-20">
+          {{student.assignedQuestions.length}}
+        </div>
+      </div>
+    {{/paper-card}}
+  </div>
+{{/each}}
