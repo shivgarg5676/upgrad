@@ -28,7 +28,7 @@ export default Ember.Controller.extend({
       let selectedQuestions =  this.get('questions').filterBy('isSelected', true)
       let selectedStudents = this.get('students').filterBy('isSelected', true)
       selectedStudents.forEach((student)=>{
-        student.get('assignedQuestions').pushObjects(selectedQuestions);
+        student.set('assignedQuestions',selectedQuestions)
         student.save();
       })
       this.reset();

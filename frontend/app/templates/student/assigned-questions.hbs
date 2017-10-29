@@ -1,0 +1,8 @@
+{{#paper-item}}
+  Assigned Questions to: {{model.email}}
+{{/paper-item}}
+{{#each model.assignedQuestions as |question index|}}
+  <div>
+    {{question-card question=question index=index}}
+  </div>
+{{/each}}

@@ -7,7 +7,7 @@ export default Ember.Route.extend({
     }
   },
   model(){
-    this.store.queryRecord('user',{me: true, type: this.get('session.currentRole')} )
+    return this.store.query('user',{type: this.get('session.currentRole')})
   }
 
 });

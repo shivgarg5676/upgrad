@@ -9,7 +9,9 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login', {path:'/'});
   this.route('teacher');
-  this.route('student');
+  this.route('student', function() {
+    this.route('assigned-questions',{path: '/:id/assigned-questions'});
+  });
 
   this.route('question', function() {
     this.route('new');

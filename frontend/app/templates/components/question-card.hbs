@@ -1,0 +1,31 @@
+{{#paper-card}}
+  <div class="layout-row layout-align-start-center">
+    <div class="layout-column flex flex-5 layout-align-start-center padding-10 bg-lightgrey">
+      <div>
+        S.No
+      </div>
+       <div>
+         {{increment-index index 1}}
+       </div>
+    </div>
+    <div class="layout-column flex-85 padding-10" >
+      <div>
+        <label>
+          {{question.title}}
+        </label>
+      </div>
+      <div>
+        {{question.description}}
+      </div>
+    </div>
+
+    <div class="layout-column flex-15 layout-align-center-center bg-lightgrey padding-10">
+      <div>
+        Question Type
+      </div>
+      <div>
+        {{question.questionType.name}}
+      </div>
+    </div>
+  </div>
+{{/paper-card}}
