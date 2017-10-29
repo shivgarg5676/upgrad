@@ -20,15 +20,20 @@ export default Ember.Controller.extend({
         let markedOptions =this.get('model.question.options').filterBy('isMarked', true);
         this.set('model.answer.markedOptions', markedOptions)
         if(markedOptions.length>0){
-          this.get('model.answer').save();
+          this.get('model.answer').save().then((result)=>{
+            alert('answer submitted')
+            this.resetData()
+            history.back()
+          });
         }
       } else {
-        this.set('model.answer.question', this.get('model.question'));
-        this.set('model.answer.student', this.get('model.student'))
-        this.get('model.answer').save();
+        this.get('model.answer').save().then((result)=>{
+          alert('answer submitted')
+          this.resetData()
+          history.back()
+        });
       }
-      this.reset()
-      this.transitionToRoute('student')
+
     }
   }
 
